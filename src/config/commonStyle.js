@@ -1,5 +1,7 @@
-import {StyleSheet, Platform} from 'react-native';
+import {StyleSheet, Platform, Dimensions} from 'react-native';
 import Colors from '../assets/colors/colors';
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+import RF from "react-native-responsive-fontsize";
 
 export default styles = StyleSheet.create({
     container: {
@@ -25,10 +27,10 @@ export default styles = StyleSheet.create({
         padding:10,
     },
     menuImage: {
-        borderRadius:50,
-        marginBottom:10,
-        width:60,
-        height:60
+        borderRadius:Math.round(Dimensions.get('window').width + Dimensions.get('window').height) / 2,
+        margin:10,
+        width: wp('18%'),
+        height: hp('10%'),
     },
     profiletext: {
         color: 'white',
@@ -54,7 +56,7 @@ export default styles = StyleSheet.create({
   },
   menuText: {
     marginTop:5,
-    fontSize:14
+    fontSize:RF(2.3)
   }
 
 });

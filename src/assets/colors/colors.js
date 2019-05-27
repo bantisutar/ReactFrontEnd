@@ -5,6 +5,8 @@ const colors = {
    pageBackground:'#292628',
    textWhite:'#7a7a7a',
    //pageBackground:'#eeeeee',
-   iconColor:'#939393'
+   iconColor:'#939393',
+   purple:'purple',
+   
  };
 export default colors;

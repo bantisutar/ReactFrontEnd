@@ -18,13 +18,14 @@ import Profile from '../screens/profile';
 import Cart from '../screens/cart';
 import Information from '../screens/information';
 import ViewAll from '../screens/viewall';
+import Scanner from '../screens/scanner';
 import WheatherDetail from '../screens/whether';
 const DEVICE_WIDTH = Dimensions.get('window').width;
-
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 const HomeStack = createStackNavigator({
   Home: {
     screen: Home,
-    headerMode: 'float',
+    headerMode: 'screen',
     navigationOptions: ({ navigation }) => ({
       
       headerLeft:
@@ -66,6 +67,7 @@ const HomeStack = createStackNavigator({
     })
   },
  
+ 
 },
   {
     initialRouteName: 'Home',
@@ -87,7 +89,7 @@ const HomeStack = createStackNavigator({
 
 const ProfileStack = createStackNavigator({
   Profile: {
-    screen: Profile,
+    screen: Scanner,
     headerMode: 'float',
     navigationOptions: ({ navigation }) => ({
      title:"Profile",
@@ -127,6 +129,7 @@ const ProfileStack = createStackNavigator({
       headerMode: 'float',
       navigationOptions: ({ navigation }) => ({
        title:"Cart Page",
+      
         headerRight:
           <Icon style={{ paddingRight: 10, color: 'white' }}
             name='md-person-add' navigation
@@ -215,8 +218,8 @@ const TabNavigator = createBottomTabNavigator(
   {
     Home: HomeStack,
     Profile: ProfileStack,
-    Cart: CartStack,
-    Wheather: InfoStack
+    Home1: HomeStack,
+    Wheather: InfoStack,
   },
   {
     defaultNavigationOptions: ({ navigation }) => ({
@@ -232,7 +235,7 @@ const TabNavigator = createBottomTabNavigator(
         } else if (routeName === 'Profile') {
           iconName = `ios-options`;
         }
-        else if (routeName === 'Cart') {
+        else if (routeName === 'Home1') {
           iconName = `ios-construct`;
         }
         else if (routeName === 'Wheather') {
@@ -258,7 +261,7 @@ const TabNavigator = createBottomTabNavigator(
         backgroundColor:colors.primary,
         borderTopLeftRadius: 30,
         borderTopRightRadius: 30,
-        height: 50
+        height: hp('7%')
       },
       activeTabStyle: {
         backgroundColor: 'white',
@@ -270,26 +273,22 @@ const TabNavigator = createBottomTabNavigator(
 );
 
 const MyDrawerNavigator = createDrawerNavigator({
-
-  Login: {
-    screen: Login,
-  },
   Home: {
-    screen: TabNavigator
+    screen: TabNavigator,
+     navigationOptions: {
+      drawerLabel: "Home"
+     }
   },
-   ViewAll: {
-    screen: ViewAll,
-    navigationOptions: ({ navigation }) => ({
-      title: "ViewAll Page",
-    })
+  Cart: {
+    screen: Cart,
   },
- 
+  
 },
   {
     initialRouteName: 'Home',
     contentComponent: DrawerScreen,
     //contentComponent: CustomDrawerContentComponent,
-    drawerWidth: 250,
+    drawerWidth: wp('65%'),
     drawerOpenRoute: 'DrawerOpen',
     drawerCloseRoute: 'DrawerClose',
     drawerToggleRoute: 'DrawerToggle',
@@ -310,7 +309,8 @@ export default createAppContainer(createSwitchNavigator(
     AuthLoading: AuthLoading,
     App: MyDrawerNavigator,
     Auth: Login,
-    Intro: AppIntro
+    Intro: AppIntro,
+  
   },
   {
     initialRouteName: 'AuthLoading',

@@ -4,7 +4,8 @@ import { Col, Row, Grid } from "react-native-easy-grid";
 import Icon from 'react-native-ionicons';
 import { Card, ListItem, Divider } from 'react-native-elements'
 export const { width, height } = Dimensions.get('window');
-
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+import RF from "react-native-responsive-fontsize"
 class WheatherDetail extends Component {
     constructor(props) {
         super(props);

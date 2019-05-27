@@ -3,7 +3,8 @@ import { View, Text, StyleSheet, StatusBar, ImageBackground, Image, TouchableHig
 import LinearGradient from 'react-native-linear-gradient';
 import { Col, Row, Grid } from "react-native-easy-grid";
 import Icon from 'react-native-ionicons';
-
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+import RF from "react-native-responsive-fontsize"
 class Information extends Component {
   constructor(props) {
     super(props);
@@ -47,12 +48,14 @@ class Information extends Component {
                 backgroundColor: 'rgba(71, 57, 152, 0.5)',
                 borderColor: 'rgba(160, 160, 190, 0.1)',
                 borderWidth: 10,
+                justifyContent:'center',
+                alignItems:'center'
               }}
               underlayColor='#ccc'
               onPress={() => alert('Yaay!')}
             >
-              <Text style={{ color: 'white', fontSize: 80, top: 50, left: 40 }}> 23 <Text style={{ color: '#766EA7', fontSize: 40, top: 10 }}>0c</Text></Text>
-              <Text style={{ color: 'white', fontSize: 14, top: 50, left: 70 }}> Party Sunny</Text>
+              <Text style={{ color: 'white', fontSize: RF(11),  }}> 23 <Text style={{ color: '#766EA7', fontSize: 40, top: 10 }}>0c</Text></Text>
+              <Text style={{ color: 'white',  }}> Party Sunny</Text>
             </View>
           </View>
           {/* <LinearGradient

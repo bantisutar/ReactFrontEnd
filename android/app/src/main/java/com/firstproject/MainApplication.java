@@ -3,6 +3,7 @@ package com.firstproject;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.wix.RNCameraKit.RNCameraKitPackage;
 import com.BV.LinearGradient.LinearGradientPackage;
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
@@ -26,6 +27,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new RNCameraKitPackage(),
             new LinearGradientPackage(),
             new RNGestureHandlerPackage(),
             new VectorIconsPackage()
